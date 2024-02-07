@@ -10,6 +10,27 @@ class MonitoringModel extends CI_Model
         // Construct the parent class
         parent::__construct();
     }
+    function Login()
+    {
+        $this->db->where(
+            'USERNAME',
+            htmlspecialchars($this->input->post('username'))
+        );
+        $data = $this->db->get('user_monitoring')->row();
+        if ($data || $data != null) {
+            if (
+                password_verify(
+                    htmlspecialchars($this->input->post('password')),
+                    $data->PASSWORD
+                )
+            ) {
+                $this->session->set_userdata(['USER_ID' => $data->USER_ID]);
+                Redirect('');
+            }
+        }
+
+        Redirect('auth');
+    }
     function AuthLogin($input)
     {
         $key =
@@ -330,6 +351,31 @@ class MonitoringModel extends CI_Model
             'data' => $event,
         ];
     }
+    function GetUser($draw, $start, $length, $search, $order)
+    {
+        $this->db->limit($length, $start);
+        $this->db->order_by('CREATED_AT', $order[0]['dir']);
+        $data = $this->db->get('user_monitoring')->result();
+        $totalData = $this->db->count_all_results('user_monitoring');
+        if ($search['value'] != null || $search['value'] != '') {
+            $this->db->like('USERNAME', $search['value']);
+
+            $this->db->limit($length, $start);
+            $data = $this->db->get('user_monitoring')->result();
+        }
+        if ($search['value'] != null || $search['value'] != '') {
+            $this->db->like('USERNAME', $search['value']);
+            $this->db->limit($length, $start);
+            $totalData = $this->db->count_all_results('user_monitoring');
+        }
+        return [
+            'recordsTotal' => $totalData,
+            'draw' => $draw,
+            'recordsFiltered' => $totalData,
+            'data' => $data,
+        ];
+    }
+
     function GetDataServer($draw, $start, $length, $search, $order)
     {
         $this->db->limit($length, $start);

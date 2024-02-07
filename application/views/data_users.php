@@ -17,34 +17,18 @@
                                         <table id="data_user" class="display" style="width:100%">
                                              <thead>
                                                   <tr>
-                                                       <th>SERVER ID</th>
-                                                       <th>MECHINE ID</th>
-                                                       <th>VOLTAGE</th>
-                                                       <th>CURRENT</th>
-                                                       <th>POWER</th>
-                                                       <th>FACTOR</th>
-                                                       <th>VA</th>
-                                                       <th>VAR</th>
-                                                       <th>FREKUENSI</th>
+                                                       <th>USERNAME</th>
 
-                                                       <th>ENERGI</th>
                                                        <th>CREATED AT</th>
+                                                       <th>UPDATED AT</th>
                                                   </tr>
                                              </thead>
                                              <tfoot>
                                                   <tr>
-                                                       <th>SERVER ID</th>
-                                                       <th>MECHINE ID</th>
-                                                       <th>VOLTAGE</th>
-                                                       <th>CURRENT</th>
-                                                       <th>POWER</th>
-                                                       <th>FACTOR</th>
-                                                       <th>VA</th>
-                                                       <th>VAR</th>
-                                                       <th>FREKUENSI</th>
+                                                       <th>USERNAME</th>
 
-                                                       <th>ENERGI</th>
                                                        <th>CREATED AT</th>
+                                                       <th>UPDATED AT</th>
                                                   </tr>
                                              </tfoot>
                                         </table>

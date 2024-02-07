@@ -24,3 +24,4 @@ $route['api/monitoring/grafik'] = 'api/MonitoringApi/linelimit';
 $route['api/monitoring/grafikline'] = 'api/MonitoringApi/grafikLine';
 $route['api/data-server'] = 'api/MonitoringApi/dataServer';
 $route['api/data-mechine'] = 'api/MonitoringApi/dataMechine';
+$route['api/data-users'] = 'api/MonitoringApi/dataUser';

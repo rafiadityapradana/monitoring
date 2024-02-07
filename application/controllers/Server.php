@@ -5,6 +5,15 @@ require 'vendor/autoload.php';
 use WebSocket\Client;
 class Server extends CI_Controller
 {
+    function __construct()
+    {
+        // Construct the parent class
+
+        parent::__construct();
+        if (!$this->session->userdata('USER_ID')) {
+            Redirect('auth');
+        }
+    }
     public function index()
     {
         $this->load->view('template/header');

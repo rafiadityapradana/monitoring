@@ -105,9 +105,9 @@
                                              </div>
                                         </div>
                                         <div class="form-group form-primary">
-                                             <input type="text" name="email" class="form-control">
+                                             <input type="text" name="username" class="form-control">
                                              <span class="form-bar"></span>
-                                             <label class="float-label">Your Email Address</label>
+                                             <label class="float-label">Your UserName</label>
                                         </div>
                                         <div class="form-group form-primary">
                                              <input type="password" name="password" class="form-control">

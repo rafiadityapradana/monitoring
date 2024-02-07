@@ -2,7 +2,7 @@
 $(document).ready(function () {
   var LoadData = new DataTable("#data_mechine", {
     ajax: $("#BODY").attr("URL") + "/api/data-mechine",
-    order: [[2, "desc"]],
+    // order: [[10, "desc"]],
     columns: [
       {
         data: "MECHINE_ID",

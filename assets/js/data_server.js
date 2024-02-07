@@ -2,7 +2,7 @@
 $(document).ready(function () {
   var LoadData = new DataTable("#data_server", {
     ajax: $("#BODY").attr("URL") + "/api/data-server",
-    order: [[3, "desc"]],
+    // order: [[3, "desc"]],
 
     columns: [
       {
