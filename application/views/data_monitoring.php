@@ -73,8 +73,8 @@
                                                        <th>POWER</th>
                                                        <th>FACTOR</th>
                                                        <th>VA</th>
-                                                       <th>VAR</th>
-                                                       <th>FREKUENSI</th>
+                                                       <!-- <th>VAR</th> -->
+                                                       <!-- <th>FREKUENSI</th> -->
 
                                                        <th>ENERGI</th>
                                                        <th>CREATED AT</th>
@@ -89,8 +89,8 @@
                                                        <th>POWER</th>
                                                        <th>FACTOR</th>
                                                        <th>VA</th>
-                                                       <th>VAR</th>
-                                                       <th>FREKUENSI</th>
+                                                       <!-- <th>VAR</th> -->
+                                                       <!-- <th>FREKUENSI</th> -->
 
                                                        <th>ENERGI</th>
                                                        <th>CREATED AT</th>

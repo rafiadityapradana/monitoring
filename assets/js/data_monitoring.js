@@ -77,14 +77,14 @@ $(document).ready(function () {
           data: "VA",
           orderable: false,
         },
-        {
-          data: "VAR",
-          orderable: false,
-        },
-        {
-          data: "FREKUENSI",
-          orderable: false,
-        },
+        // {
+        //   data: "VAR",
+        //   orderable: false,
+        // },
+        // {
+        //   data: "FREKUENSI",
+        //   orderable: false,
+        // },
         {
           data: "ENERGI",
           orderable: false,

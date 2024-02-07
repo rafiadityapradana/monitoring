@@ -4,6 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $route['default_controller'] = 'Server';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = false;
+$route['login'] = 'Auth';
 $route['app/data-grafik'] = 'Server/dataGrafik';
 $route['app/data-monitoring'] = 'Server/dataMonitoring';
 $route['app/data-users'] = 'Server/dataUsers';

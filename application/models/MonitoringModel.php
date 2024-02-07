@@ -465,7 +465,7 @@ class MonitoringModel extends CI_Model
                 foreach ($data as $key) {
                     array_push($event, [
                         'xKeys' => $key['CREATED_AT'],
-                        'watt' => (float) $key['FACTOR'], //'4',
+                        'watt' => (float) $key['POWER'], //'4',
                     ]);
                 }
                 return [
@@ -479,7 +479,7 @@ class MonitoringModel extends CI_Model
                 foreach ($data as $key) {
                     array_push($event, [
                         'xKeys' => $key['CREATED_AT'],
-                        'watt' => (float) $key['FACTOR'], //'4',
+                        'watt' => (float) $key['ENERGI'], //'4',
                     ]);
                 }
                 return [
@@ -521,7 +521,7 @@ class MonitoringModel extends CI_Model
                 foreach ($data as $key) {
                     array_push($event, [
                         'xKeys' => $key['CREATED_AT'],
-                        'powerFactor' => (float) $key['POWER'], // '3',
+                        'powerFactor' => (float) $key['FAKTOR'], // '3',
                     ]);
                 }
                 return [
