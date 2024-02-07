@@ -81,10 +81,10 @@ $(document).ready(function () {
         //   data: "VAR",
         //   orderable: false,
         // },
-        // {
-        //   data: "FREKUENSI",
-        //   orderable: false,
-        // },
+        {
+          data: "FREKUENSI",
+          orderable: false,
+        },
         {
           data: "ENERGI",
           orderable: false,
