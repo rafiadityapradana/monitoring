@@ -58,7 +58,7 @@
                                                             <option value="watt">Watt</option>
                                                             <option value="kwh">Kwh</option>
                                                             <option value="va">Va</option>
-                                                            <option value="var">Var</option>
+                                                            <!-- <option value="var">Var</option> -->
                                                             <option value="powerFactor">Power</option>
 
                                                        </select>
@@ -110,7 +110,7 @@
 
 var worker = new Worker('<?= base_url('assets/js/') ?>background-worker.js');
 
-var key = ["volt", "ampere", "frekuensi", "watt", "kwh", "va", "var", "powerFactor"]
+var key = ["volt", "ampere", "frekuensi", "powerFactor", "kwh", "va", "var", "watt"]
 FindData(
      $("#dataDropdown").val(),
      $("#serverIdDropdown").val(),
@@ -187,18 +187,18 @@ var morrisLine = Morris.Line({
           'watt',
           'kwh',
           'va',
-          'var',
+          // 'var',
           'power factor',
      ],
      lineColors: [
           '#04BFDA',
           '#FFA84A',
           '#41E308',
-          '#EBEF14',
+          '#4EEAFF',
           '#FF4A4A',
           '#4E95FF',
           '#FB4EFF',
-          '#4EEAFF',
+          '#EBEF14',
      ],
 });
 // Send a message to the worker
