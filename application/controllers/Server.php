@@ -55,4 +55,7 @@ class Server extends CI_Controller
         $this->load->view('data_server');
         $this->load->view('template/footer');
     }
+    function logout(){
+        $this->MonitoringModel->LogoutModel();
+    }
 }

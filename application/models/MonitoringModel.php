@@ -31,6 +31,11 @@ class MonitoringModel extends CI_Model
 
         Redirect('auth');
     }
+    function LogoutModel()
+    {
+        $this->session->sess_destroy();
+        Redirect('auth');
+    }
     function AuthLogin($input)
     {
         $key =

@@ -158,7 +158,7 @@
                                              </li>
                                              <li class="waves-effect waves-light">
                                                   <a href="<?= base_url(
-                                                      'login'
+                                                      'app/logout'
                                                   ) ?>">
                                                        <i class="ti-layout-sidebar-left"></i> Logout
                                                   </a>

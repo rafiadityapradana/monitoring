@@ -2,7 +2,7 @@
 $(document).ready(function () {
   new DataTable("#data_user", {
     ajax: $("#BODY").attr("URL") + "api/data-users",
-    order: [[2, "desc"]],
+    // order: [[2, "desc"]],
     columns: [
       {
         data: "USERNAME",

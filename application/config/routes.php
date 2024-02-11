@@ -10,6 +10,7 @@ $route['app/data-monitoring'] = 'Server/dataMonitoring';
 $route['app/data-users'] = 'Server/dataUsers';
 $route['app/data-machine'] = 'Server/dataMachine';
 $route['app/data-server'] = 'Server/dataServer';
+$route['app/logout'] = 'Server/logout';
 
 /*
 | -------------------------------------------------------------------------
