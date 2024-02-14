@@ -163,6 +163,29 @@ class MonitoringApi extends REST_Controller
             );
         }
     }
+
+    public function dataUser_post()
+    {
+        try {
+            if ($this->MonitoringModel->InsertDataUser($this->post())) {
+                $this->response(
+                    ['message' => 'Successfully saved data'],
+                    REST_Controller::HTTP_CREATED
+                );
+            } else {
+                $this->response(
+                    ['message' => 'An Error Occurred While Saving Data'],
+                    REST_Controller::HTTP_BAD_REQUEST
+                );
+            }
+        } catch (Exception $th) {
+            //throw $th;
+            $this->response(
+                ['message' => 'An Error Occurred While Saving Data'],
+                REST_Controller::HTTP_INTERNAL_SERVER_ERROR
+            );
+        }
+    }
     public function dataMechine_get()
     {
         try {
@@ -206,7 +229,8 @@ class MonitoringApi extends REST_Controller
             );
         }
     }
-    function dataRoole_get(){
+    function dataRoole_get()
+    {
         try {
             $this->response(
                 $this->MonitoringModel->GetRole(

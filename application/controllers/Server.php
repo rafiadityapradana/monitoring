@@ -38,8 +38,10 @@ class Server extends CI_Controller
     }
     function dataUsers()
     {
+        $data['roles'] = $this->MonitoringModel->GetRoleDopDown();
+        $data['mechine'] = $this->MonitoringModel->GetmechineDopDown();
         $this->load->view('template/header');
-        $this->load->view('data_users');
+        $this->load->view('data_users', $data);
         $this->load->view('template/footer');
         // $this->load->view('rest_server');
     }

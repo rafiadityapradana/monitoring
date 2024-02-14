@@ -60,18 +60,14 @@
                                    <div class="form-group">
                                         <label for="server_name">Server Name</label>
                                         <input type="text" class="form-control" id="server_name">
-                                        <small id="emailHelp" class="form-text text-muted">We'll never share your email
-                                             with
-                                             anyone else.</small>
+
                                    </div>
                               </div>
                               <div class="col-md-6">
                                    <div class="form-group">
                                         <label for="server_address">Server address</label>
                                         <input type="text" class="form-control" id="server_address">
-                                        <small id="emailHelp" class="form-text text-muted">We'll never share your email
-                                             with
-                                             anyone else.</small>
+
                                    </div>
                               </div>
                          </div>
