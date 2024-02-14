@@ -43,6 +43,14 @@ class Server extends CI_Controller
         $this->load->view('template/footer');
         // $this->load->view('rest_server');
     }
+    function dataRoles()
+    {
+        $this->load->view('template/header');
+        $this->load->view('data_roles');
+        $this->load->view('template/footer');
+        // $this->load->view('rest_server');
+    }
+
     function dataMachine()
     {
         $this->load->view('template/header');
@@ -55,7 +63,8 @@ class Server extends CI_Controller
         $this->load->view('data_server');
         $this->load->view('template/footer');
     }
-    function logout(){
+    function logout()
+    {
         $this->MonitoringModel->LogoutModel();
     }
 }

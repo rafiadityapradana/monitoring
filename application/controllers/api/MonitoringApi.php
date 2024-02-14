@@ -206,6 +206,26 @@ class MonitoringApi extends REST_Controller
             );
         }
     }
+    function dataRoole_get(){
+        try {
+            $this->response(
+                $this->MonitoringModel->GetRole(
+                    $this->get('draw'),
+                    $this->get('start'),
+                    $this->get('length'),
+                    $this->get('search'),
+                    $this->get('order')
+                ),
+                REST_Controller::HTTP_OK
+            );
+        } catch (Exception $th) {
+            //throw $th;
+            $this->response(
+                ['message' => 'An Error Occurred While Load Data'],
+                REST_Controller::HTTP_INTERNAL_SERVER_ERROR
+            );
+        }
+    }
 
     function dataMoniotring_get()
     {

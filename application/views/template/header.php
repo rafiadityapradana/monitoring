@@ -223,6 +223,16 @@
                                                   </li>
                                                   <li class=" ">
                                                        <a href="<?= base_url(
+                                                           'app/data-roles'
+                                                       ) ?>" class="waves-effect waves-dark">
+                                                            <span class="pcoded-micon"><i
+                                                                      class="ti-angle-right"></i></span>
+                                                            <span class="pcoded-mtext">Roles</span>
+                                                            <span class="pcoded-mcaret"></span>
+                                                       </a>
+                                                  </li>
+                                                  <li class=" ">
+                                                       <a href="<?= base_url(
                                                            'app/data-machine'
                                                        ) ?>" class="waves-effect waves-dark">
                                                             <span class="pcoded-micon"><i

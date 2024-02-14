@@ -379,11 +379,33 @@ class MonitoringModel extends CI_Model
         if ($search['value'] != null || $search['value'] != '') {
             $this->db->like('USERNAME', $search['value']);
             $this->db->limit($length, $start);
-            $this->db->join(
-                'roles_monitoring',
-                'roles_monitoring.ROLE_ID = user_monitoring.ROLE_ID'
-            );
             $totalData = $this->db->count_all_results('user_monitoring');
+        }
+        return [
+            'recordsTotal' => $totalData,
+            'draw' => $draw,
+            'recordsFiltered' => $totalData,
+            'data' => $data,
+        ];
+    }
+
+    function GetRole($draw, $start, $length, $search, $order)
+    {
+        $this->db->limit($length, $start);
+        $this->db->order_by('CREATED_AT', $order[0]['dir']);
+
+        $data = $this->db->get('roles_monitoring')->result();
+        $totalData = $this->db->count_all_results('roles_monitoring');
+        if ($search['value'] != null || $search['value'] != '') {
+            $this->db->like('ROLE_NAME', $search['value']);
+
+            $this->db->limit($length, $start);
+            $data = $this->db->get('roles_monitoring')->result();
+        }
+        if ($search['value'] != null || $search['value'] != '') {
+            $this->db->like('ROLE_NAME', $search['value']);
+            $this->db->limit($length, $start);
+            $totalData = $this->db->count_all_results('roles_monitoring');
         }
         return [
             'recordsTotal' => $totalData,
