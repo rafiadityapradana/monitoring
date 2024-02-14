@@ -12,6 +12,10 @@ class MonitoringModel extends CI_Model
     }
     function Login()
     {
+        $this->db->join(
+            'roles_monitoring',
+            'roles_monitoring.ROLE_ID = user_monitoring.ROLE_ID'
+        );
         $this->db->where(
             'USERNAME',
             htmlspecialchars($this->input->post('username'))
@@ -359,7 +363,11 @@ class MonitoringModel extends CI_Model
     function GetUser($draw, $start, $length, $search, $order)
     {
         $this->db->limit($length, $start);
-        $this->db->order_by('CREATED_AT', $order[0]['dir']);
+        $this->db->order_by('user_monitoring.CREATED_AT', $order[0]['dir']);
+        $this->db->join(
+            'roles_monitoring',
+            'roles_monitoring.ROLE_ID = user_monitoring.ROLE_ID'
+        );
         $data = $this->db->get('user_monitoring')->result();
         $totalData = $this->db->count_all_results('user_monitoring');
         if ($search['value'] != null || $search['value'] != '') {
@@ -371,6 +379,10 @@ class MonitoringModel extends CI_Model
         if ($search['value'] != null || $search['value'] != '') {
             $this->db->like('USERNAME', $search['value']);
             $this->db->limit($length, $start);
+            $this->db->join(
+                'roles_monitoring',
+                'roles_monitoring.ROLE_ID = user_monitoring.ROLE_ID'
+            );
             $totalData = $this->db->count_all_results('user_monitoring');
         }
         return [

@@ -8,6 +8,10 @@ $(document).ready(function () {
         data: "USERNAME",
         orderable: false,
       },
+      {
+        data: "ROLE_NAME",
+        orderable: false,
+      },
 
       {
         data: "CREATED_AT",

@@ -10,6 +10,8 @@
 
                                    <div class="card-header-right">
                                         <!-- Button Action -->
+                                        <button class="btn btn-primary btn-sm" data-toggle="modal"
+                                             data-target="#modalServer">Add New Data</button>
                                    </div>
                               </div>
                               <div class="card-block">
@@ -18,7 +20,7 @@
                                              <thead>
                                                   <tr>
                                                        <th>USERNAME</th>
-
+                                                       <th>ROLE</th>
                                                        <th>CREATED AT</th>
                                                        <th>UPDATED AT</th>
                                                   </tr>
@@ -26,7 +28,7 @@
                                              <tfoot>
                                                   <tr>
                                                        <th>USERNAME</th>
-
+                                                       <th>ROLE</th>
                                                        <th>CREATED AT</th>
                                                        <th>UPDATED AT</th>
                                                   </tr>
