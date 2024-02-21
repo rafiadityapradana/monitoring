@@ -72,18 +72,16 @@ var morrisLine = Morris.Line({
           'power factor',
           'kwh',
           'va',
-          // 'var',
           'watt',
      ],
      lineColors: [
-          '#04BFDA',
+          '#FF407D',
           '#FFA84A',
           '#41E308',
-          '#EBEF14',
+          '#40679E',
           '#FF4A4A',
           '#4E95FF',
-          '#FB4EFF',
-          '#4EEAFF',
+          '#04BFDA',
      ],
 });
 
