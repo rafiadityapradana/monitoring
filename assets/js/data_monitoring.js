@@ -4,7 +4,9 @@ $(document).ready(function () {
   initializeDataTable(
     $("#rowLimitDropdown").val(),
     $("#serverIdDropdown").val(),
-    $("#mechineIdDropdown").val()
+    $("#mechineIdDropdown").val(),
+    $("#groupDropdown").val(),
+    $("#CretedAtSelect").val()
   );
 
   $("#serverIdDropdown").on("change", function () {
@@ -13,7 +15,9 @@ $(document).ready(function () {
     initializeDataTable(
       $("#rowLimitDropdown").val(),
       selectedRows,
-      $("#mechineIdDropdown").val()
+      $("#mechineIdDropdown").val(),
+      $("#groupDropdown").val(),
+      $("#CretedAtSelect").val()
     );
   });
   $("#mechineIdDropdown").on("change", function () {
@@ -22,7 +26,9 @@ $(document).ready(function () {
     initializeDataTable(
       $("#rowLimitDropdown").val(),
       $("#serverIdDropdown").val(),
-      selectedRows
+      selectedRows,
+      $("#groupDropdown").val(),
+      $("#CretedAtSelect").val()
     );
   });
 
@@ -33,10 +39,49 @@ $(document).ready(function () {
     initializeDataTable(
       selectedRows,
       $("#serverIdDropdown").val(),
-      $("#mechineIdDropdown").val()
+      $("#mechineIdDropdown").val(),
+      $("#groupDropdown").val(),
+      $("#CretedAtSelect").val()
     );
   });
-  function initializeDataTable(rows, SERVER_ID, MECHINE_ID) {
+  $("#CretedAtSelect").hide();
+  $("#groupDropdown").on("change", function () {
+    var selectedRows = $(this).val();
+    if (selectedRows === "CREATED_AT") {
+      $("#CretedAtSelect").show();
+    } else {
+      $("#CretedAtSelect").hide();
+      dataTable.destroy();
+      initializeDataTable(
+        $("#rowLimitDropdown").val(),
+        $("#serverIdDropdown").val(),
+        $("#mechineIdDropdown").val(),
+        selectedRows,
+        $("#CretedAtSelect").val()
+      );
+    }
+  });
+
+  $("#CretedAtSelect").on("change", function () {
+    var selectedRows = $(this).val();
+    dataTable.destroy();
+    // console.log($("#serverIdDropdown").val());
+    initializeDataTable(
+      $("#rowLimitDropdown").val(),
+      $("#serverIdDropdown").val(),
+      $("#mechineIdDropdown").val(),
+      $("#groupDropdown").val(),
+      selectedRows
+    );
+  });
+  // CretedAt
+  function initializeDataTable(
+    rows = undefined,
+    SERVER_ID = undefined,
+    MECHINE_ID = undefined,
+    GROUP = undefined,
+    CREATED_AT = undefined
+  ) {
     dataTable = $("#example").DataTable({
       pageLength: rows,
       ajax:
@@ -44,7 +89,11 @@ $(document).ready(function () {
         "api/monitoring?serverId=" +
         (SERVER_ID === undefined ? "" : SERVER_ID) +
         "&mechineId=" +
-        (MECHINE_ID === undefined ? "" : MECHINE_ID),
+        (MECHINE_ID === undefined ? "" : MECHINE_ID) +
+        "&groupBy=" +
+        (GROUP === undefined ? "" : GROUP) +
+        "&createdAt=" +
+        (CREATED_AT === undefined ? "" : CREATED_AT),
       order: [[0, "desc"]],
       searching: false,
       lengthChange: false,

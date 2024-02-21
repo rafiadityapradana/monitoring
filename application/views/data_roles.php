@@ -16,7 +16,7 @@
                               </div>
                               <div class="card-block">
                                    <div class="table-responsive">
-                                        <table id="data_user" class="display" style="width:100%">
+                                        <table id="example" class="display" style="width:100%">
                                              <thead>
                                                   <tr>
                                                        <th>ROLE</th>

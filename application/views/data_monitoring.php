@@ -17,10 +17,10 @@
 
                               <div class="card-block">
                                    <div class="row mb-3">
-                                        <div class="col-8">
+                                        <div class="col-12">
 
                                              <div class="form-group row">
-                                                  <div class="col-sm-3">
+                                                  <div class="col-sm-3 mt-2">
                                                        <select name="select" class="form-control" id="serverIdDropdown">
                                                             <option value="">SERVER ID</option>
                                                             <?php foreach (
@@ -32,7 +32,7 @@
                                                             <?php endforeach; ?>
                                                        </select>
                                                   </div>
-                                                  <div class="col-sm-3">
+                                                  <div class="col-sm-3 mt-2">
                                                        <select name="select" class="form-control"
                                                             id="mechineIdDropdown">
                                                             <option value="">MECHINE ID</option>
@@ -46,7 +46,7 @@
                                                             <?php endforeach; ?>
                                                        </select>
                                                   </div>
-                                                  <div class="col-sm-3">
+                                                  <div class="col-sm-3 mt-2">
                                                        <select name="select" id="rowLimitDropdown" class="form-control">
                                                             <option value="10">10</option>
                                                             <option value="50">50</option>
@@ -56,6 +56,29 @@
 
                                                        </select>
                                                   </div>
+
+                                                  <div class="col-sm-3 mt-2">
+                                                       <select name="select" id="groupDropdown" class="form-control">
+                                                            <option value="">GROUP BY</option>
+                                                            <option value="CREATED_AT">CREATED AT</option>
+                                                            <option value="SERVER_ID">SERVER NAME</option>
+                                                            <option value="MECHINE_ID">MECHINE NAME</option>
+
+                                                       </select>
+                                                  </div>
+
+                                                  <div class="col-sm-3 mt-2">
+                                                       <select name="select" id="CretedAtSelect" class="form-control">
+                                                            <option value="">CREATED AT</option>
+                                                            <option value="MINUTE">MINUTE</option>
+                                                            <option value="HOUR">HOUR</option>
+                                                            <option value="DATE">DATE</option>
+                                                            <option value="MONTH">MONTH</option>
+                                                            <option value="YEAR">YEAR</option>
+
+                                                       </select>
+                                                  </div>
+
 
 
                                              </div>

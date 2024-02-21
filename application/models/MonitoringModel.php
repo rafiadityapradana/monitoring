@@ -278,15 +278,28 @@ class MonitoringModel extends CI_Model
         $length,
         $order,
         $serverId,
-        $mechineId
+        $mechineId,
+        $groupBy,
+        $createdAt
     ) {
-        $this->db->select(
-            'A.MONITORING_ID, C.SERVER_NAME,B.MECHINE_NAME, A.VOLTAGE, A.CURRENT,   A.POWER, A.FACTOR, A.VA, A.VAR, A.FREKUENSI, A.ENERGI, A.CREATED_AT'
-        );
+        if ($groupBy != null || $groupBy != '') {
+            $this->db->select(
+                'A.MONITORING_ID, C.SERVER_NAME, B.MECHINE_NAME, 
+            CAST(SUM(A.VOLTAGE) AS DECIMAL(10, 2)) AS VOLTAGE, CAST(SUM(A.CURRENT) AS DECIMAL(10, 2)) AS CURRENT, 
+            CAST(SUM(A.POWER) AS DECIMAL(10, 2)) AS POWER, CAST(SUM(A.FACTOR) AS DECIMAL(10, 2)) AS FACTOR, 
+            CAST(SUM(A.VA) AS DECIMAL(10, 2)) AS VA, CAST(SUM(A.FREKUENSI) AS DECIMAL(10, 2)) AS FREKUENSI, 
+            CAST(SUM(A.ENERGI) AS DECIMAL(10, 2)) AS ENERGI, A.CREATED_AT'
+            );
+        } else {
+            $this->db->select(
+                'A.MONITORING_ID, C.SERVER_NAME, B.MECHINE_NAME, A.VOLTAGE,A.CURRENT, 
+                A.POWER,A.FACTOR, A.VA, A.FREKUENSI, A.ENERGI, A.CREATED_AT'
+            );
+        }
         $this->db->from('monitoring A');
         $this->db->join('mechine B', 'B.MECHINE_ID = A.MECHINE_ID');
         $this->db->join('server C', 'C.SERVER_ID = A.SERVER_ID');
-        $this->db->order_by('CREATED_AT', $order[0]['dir']);
+        $this->db->order_by('A.CREATED_AT', $order[0]['dir']);
 
         if ($serverId != null || $serverId != '') {
             $this->db->where('A.SERVER_ID', $serverId);
@@ -294,19 +307,39 @@ class MonitoringModel extends CI_Model
 
         if ($mechineId != null || $mechineId != '') {
             $this->db->where('A.MECHINE_ID', $mechineId);
+        }
+        if ($groupBy != null || $groupBy != '') {
+            if ($groupBy !== 'CREATED_AT') {
+                $this->db->group_by('A.' . $groupBy);
+            } else {
+                if ($createdAt != null || $createdAt != '') {
+                    $this->db->group_by($createdAt . '(A.CREATED_AT)');
+                }
+            }
         }
         $this->db->limit($length, $start);
         $data = $this->db->get()->result();
         return [
-            'recordsTotal' => $this->CountMonitoring($serverId, $mechineId),
+            'recordsTotal' => $this->CountMonitoring(
+                $serverId,
+                $mechineId,
+                $groupBy,
+                $createdAt
+            ),
             'draw' => $draw,
-            'recordsFiltered' => $this->CountMonitoring($serverId, $mechineId),
+            'recordsFiltered' => $this->CountMonitoring(
+                $serverId,
+                $mechineId,
+                $groupBy,
+                $createdAt
+            ),
             'data' => $data,
         ];
     }
 
-    function CountMonitoring($serverId, $mechineId)
+    function CountMonitoring($serverId, $mechineId, $groupBy, $createdAt)
     {
+        $this->db->select('1');
         $this->db->from('monitoring A');
         $this->db->join('mechine B', 'B.MECHINE_ID = A.MECHINE_ID');
         $this->db->join('server C', 'C.SERVER_ID = A.SERVER_ID');
@@ -316,6 +349,15 @@ class MonitoringModel extends CI_Model
 
         if ($mechineId != null || $mechineId != '') {
             $this->db->where('A.MECHINE_ID', $mechineId);
+        }
+        if ($groupBy != null || $groupBy != '') {
+            if ($groupBy !== 'CREATED_AT') {
+                $this->db->group_by('A.' . $groupBy);
+            } else {
+                if ($createdAt != null || $createdAt != '') {
+                    $this->db->group_by($createdAt . '(A.CREATED_AT)');
+                }
+            }
         }
         return $this->db->count_all_results();
     }

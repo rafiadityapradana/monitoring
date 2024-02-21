@@ -38,7 +38,9 @@ class MonitoringApi extends REST_Controller
                     $this->get('length'),
                     $this->get('order'),
                     $this->get('serverId'),
-                    $this->get('mechineId')
+                    $this->get('mechineId'),
+                    $this->get('groupBy'),
+                    $this->get('createdAt')
                 ),
                 REST_Controller::HTTP_OK
             );
